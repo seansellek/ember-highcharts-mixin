@@ -1,0 +1,55 @@
+import Ember from 'ember';
+
+const { get, set, on, computed, observer, run, $, merge } = Ember;
+const { highcharts } = $();
+
+export default Ember.Mixin.create({
+  series: [],
+  options: {},
+
+  chartOptions: computed('series', 'options',  {
+    get() {
+      let series = get(this, 'series');
+      let options = get(this, 'options');
+
+      return merge(options, { series });
+    },
+    set(key, value) {
+      set(this, "series", value.series);
+      delete value.series;
+      set(this, 'options', value);
+    }
+  }),
+
+  seriesDidChange: observer('series', function() {
+    let chart = get(this, 'chart');
+    let newSeries = get(this, 'series');
+
+    if ( !(chart && newSeries) ) {
+      return;
+    }
+
+    for (let series of chart.series) {
+      series.remove(false);
+    }
+
+    for (let series of newSeries) {
+      chart.addSeries(series);
+    }
+
+    chart.redraw();
+  }),
+
+  draw() {
+    const options = get(this, 'chartOptions');
+    set(this, 'chart', highcharts(options).highcharts());
+  },
+
+  drawLater() {
+    run.scheduleOnce('afterRender', this, 'draw');
+  },
+
+  _renderChart: on('didInsertElement', function() {
+    this.drawLater();
+  })
+});

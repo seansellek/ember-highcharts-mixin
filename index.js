@@ -2,5 +2,5 @@
 'use strict';
 
 module.exports = {
-  name: 'highcharts-mixin'
+  name: 'ember-highcharts-mixin'
 };
