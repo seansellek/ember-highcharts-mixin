@@ -12,6 +12,8 @@ addons:
     - google-chrome
     packages:
     - google-chrome-stable
+  code_climate:
+      repo_token: 4488403d5f5d1e46be5edba4382450c1d1ebcc0a919ad191775315363a636034
 
 cache:
   directories:

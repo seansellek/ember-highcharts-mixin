@@ -1,6 +1,7 @@
+[![Build Status](https://travis-ci.org/seansellek/ember-highcharts-mixin.svg?branch=master)](https://travis-ci.org/seansellek/ember-highcharts-mixin)
 # Highcharts-mixin
 
-This README outlines the details of collaborating on this Ember addon.
+A mixin that allows you to easily create highcharts components by taking care of data binding and redrawing for you.
 
 ## Installation
 
