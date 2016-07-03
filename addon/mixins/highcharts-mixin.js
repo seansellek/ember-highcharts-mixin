@@ -1,11 +1,12 @@
 import Ember from 'ember';
 
 const { get, set, on, computed, observer, run, $, merge } = Ember;
-const { highcharts } = $();
 
 export default Ember.Mixin.create({
   series: [],
   options: {},
+
+  highcharts: $().highcharts,
 
   chartOptions: computed('series', 'options',  {
     get() {
@@ -42,7 +43,7 @@ export default Ember.Mixin.create({
 
   draw() {
     const options = get(this, 'chartOptions');
-    set(this, 'chart', highcharts(options).highcharts());
+    set(this, 'chart', this.highcharts(options).highcharts());
   },
 
   drawLater() {
