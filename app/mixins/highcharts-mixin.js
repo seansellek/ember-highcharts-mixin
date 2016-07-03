@@ -1,4 +1,3 @@
-import Ember from 'ember';
-import HighchartsMixin from 'ember-highcharts-mixin/mixins/ember-highcharts-mixin';
+import HighchartsMixin from 'ember-highcharts-mixin/mixins/highcharts-mixin';
 
 export default HighchartsMixin;
