@@ -1,3 +1,4 @@
+[![Code Climate](https://codeclimate.com/github/seansellek/ember-highcharts-mixin/badges/gpa.svg)](https://codeclimate.com/github/seansellek/ember-highcharts-mixin)
 [![Build Status](https://travis-ci.org/seansellek/ember-highcharts-mixin.svg?branch=master)](https://travis-ci.org/seansellek/ember-highcharts-mixin)
 # Highcharts-mixin
 
