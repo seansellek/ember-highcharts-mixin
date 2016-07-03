@@ -99,10 +99,18 @@ test('instantiates highcharts object and sets it as chart', function (assert) {
 });
 
 test('redraws chart when series change', function(assert) {
+  let remove = function() {
+    let i = subject.chart.series.indexOf(this);
+    subject.chart.series.splice(i, 1);
+  };
+
   subject.chart = {
     redraw: sinon.spy(),
     series: [{
-      remove: sinon.spy()
+      remove
+    },
+    {
+      remove
     }],
     addSeries: sinon.spy()
   };
@@ -111,7 +119,7 @@ test('redraws chart when series change', function(assert) {
       data: [1, 0, 4]
   }];
   subject.set('series', series );
-  assert.ok(subject.chart.series[0].remove.calledOnce, "Removed old series.");
+  assert.equal(subject.chart.series.length, 0, "Removed old series.");
   assert.ok(subject.chart.addSeries.calledWith(series[0]), "Added new series.");
   assert.ok(subject.chart.redraw.calledOnce, "Redrew chart.");
 });

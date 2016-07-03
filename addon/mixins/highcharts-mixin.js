@@ -32,8 +32,8 @@ export default Ember.Mixin.create({
       return;
     }
 
-    for (let series of chart.series) {
-      series.remove(false);
+    while(chart.series[0]) {
+      chart.series[0].remove(false);
     }
 
     for (let series of newSeries) {
