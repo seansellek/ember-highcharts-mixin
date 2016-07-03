@@ -24,3 +24,6 @@ At the top of your component's file. Your component only needs to provide two th
 And that's it! You can now place your component in your templates. 
 
 Why the separation of `series` from `options`? Because it's very unlikely your data is already formatted as Highcharts series. And each series is unique to that specific chart. Separating the `series` allows you to define it as a computed property that takes in data from elsewhere and massages it into the format you want for this particular chart. Everything is live bound, so if the data changes, your `series` array will change, and your chart will redraw.
+
+## Examples
+See https://seansellek.github.io/ember-highcharts-mixin for a couple examples.
